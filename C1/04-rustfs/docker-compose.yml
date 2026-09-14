@@ -1,0 +1,19 @@
+# Partie 4 — même scénario que Minio, avec RustFS (successeur visé par le CM1).
+# Docs : https://docs.rustfs.com/en/installation/container
+# Image : https://hub.docker.com/r/rustfs/rustfs
+#
+# Reproduis : UI, CLI (mc est compatible S3), bucket `test`, puis script Python
+# vers un bucket `python`. Arrête Minio avant : les ports 9000/9001 sont les mêmes.
+
+services:
+  rustfs:
+    image: # TODO (Hub Docker rustfs)
+    container_name: # TODO
+    ports:
+      - # TODO API S3
+      - # TODO console
+    environment:
+      # TODO : volumes data, clés d'accès, activation console
+      - RUSTFS_VOLUMES=/data
+    volumes:
+      - ./data:/data

@@ -1,0 +1,48 @@
+# Partie 1 — cluster HDFS (NameNode + DataNode)
+# À compléter depuis TP1-BigData.pdf. YAML : 2 espaces, pas de tabulations.
+#
+# Objectif CM1 : un NameNode (métadonnées) + un DataNode (blocs).
+# Image : https://hub.docker.com/r/apache/hadoop/tags
+
+services:
+  namenode:
+    image: # TODO (version indiquée dans le PDF)
+    container_name: # TODO
+    user: # TODO (spécificité de l'image)
+    environment:
+      - HADOOP_HOME= # TODO
+    ports:
+      - "9870:9870" # UI NameNode → http://localhost:9870
+    command: ["/bin/bash", "/start-hdfs.sh"]
+    volumes:
+      - ./hadoop_namenode:/opt/hadoop/data/nameNode
+      - ./hadoop_config:/opt/hadoop/etc/hadoop
+      - ./shared:/shared
+      - ./start-hdfs.sh:/start-hdfs.sh
+    networks:
+      hdfs_network:
+        ipv4_address: # TODO (PDF)
+
+  datanode:
+    image: # TODO (même image que le NameNode)
+    container_name: # TODO (nom indiqué dans le PDF)
+    # Pas de `user:` ici (consigne PDF)
+    environment:
+      - HADOOP_HOME= # TODO
+    command: ["/bin/bash", "/init-datanode.sh"]
+    ports:
+      - "9864:9864" # UI DataNode
+    volumes:
+      - ./hadoop_datanode1:/opt/hadoop/data/dataNode
+      - ./hadoop_config:/opt/hadoop/etc/hadoop
+      - ./init-datanode.sh:/init-datanode.sh
+    networks:
+      hdfs_network:
+        ipv4_address: # TODO (PDF)
+
+networks:
+  hdfs_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: # TODO (PDF). Si "Pool overlaps", changer le 2e octet (ex. 172.20 → 172.60) partout.

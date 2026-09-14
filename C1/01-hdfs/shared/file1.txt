@@ -1,0 +1,1 @@
+fichier de test HDFS / object storage — à uploader pendant le TP

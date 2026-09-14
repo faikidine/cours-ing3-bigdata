@@ -1,0 +1,22 @@
+.DS_Store
+
+# Volumes / données générées par Docker
+**/hadoop_namenode/**
+!**/hadoop_namenode/.gitkeep
+**/hadoop_datanode1/**
+!**/hadoop_datanode1/.gitkeep
+**/hadoop_nodemanager1/**
+**/03-minio/data/**
+!**/03-minio/data/.gitkeep
+**/04-rustfs/data/**
+!**/04-rustfs/data/.gitkeep
+
+# Jeu de données HDFS (à télécharger pendant le TP)
+01-hdfs/shared/*.gz
+01-hdfs/shared/purchases.txt
+01-hdfs/shared/purchase.txt
+
+# Build MapReduce
+**/target/
+**/*.jar
+!**/pom.xml

@@ -1,0 +1,18 @@
+# Partie 3 — Minio (object storage compatible S3)
+# Répertoire séparé, comme demandé dans le PDF.
+# Recopie / adapte le service `minio` depuis TP1-BigData.pdf.
+
+services:
+  minio:
+    hostname: # TODO
+    image: # TODO
+    container_name: # TODO
+    ports:
+      - # TODO API S3
+      - # TODO console web
+    command: [] # TODO (server + console-address)
+    volumes:
+      - ./data:/data
+    environment:
+      - MINIO_ROOT_USER= # TODO
+      - MINIO_ROOT_PASSWORD= # TODO
