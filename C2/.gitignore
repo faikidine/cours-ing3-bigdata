@@ -1,0 +1,24 @@
+.DS_Store
+
+# Build sbt / Scala
+**/target/
+**/*.class
+**/*.tasty
+.bsp/
+.metals/
+.bloop/
+.scala-build/
+project/project/
+project/target/
+.history
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Clone local du HandsOn (repo séparé, à ne pas committer ici)
+02-handson/scala-class/
